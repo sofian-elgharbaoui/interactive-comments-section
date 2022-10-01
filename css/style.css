@@ -1,0 +1,46 @@
+:root {
+  --Moderate-blue: hsl(238, 40%, 52%);
+  --Soft-Red: hsl(358, 79%, 66%);
+  --Light-grayish-blue: hsl(239, 57%, 85%);
+  --Pale-red: hsl(357, 100%, 86%);
+}
+
+body {
+  background-color: aliceblue;
+  font-family: "Rubik", sans-serif;
+}
+
+.comment,
+.reply {
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.reply {
+  width: 90%;
+  margin-left: auto;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.user .reply-btn {
+  margin-left: auto;
+  color: var(--Moderate-blue);
+  font-weight: 500;
+}
+
+.user .reply-btn i {
+  font-size: small;
+}
+
+img {
+  width: 2rem;
+}
