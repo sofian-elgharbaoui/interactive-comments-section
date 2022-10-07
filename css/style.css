@@ -37,7 +37,7 @@ body {
   width: 90%;
   margin-left: auto;
 }
-
+/* left side */
 .left-side {
   background-color: aliceblue;
   display: flex;
@@ -54,6 +54,11 @@ body {
 .left-side .score {
   color: var(--Moderate-blue);
   font-weight: 500;
+}
+
+/* right side */
+.right-side {
+  flex-basis: 100%;
 }
 
 .user {
@@ -102,12 +107,18 @@ img {
 }
 
 #create-comment textarea {
-  flex-basis: 75%;
+  width: 75%;
   border: 2px solid #eee;
   border-radius: 5px;
   padding: 10px;
   outline: none;
   resize: none;
+}
+
+@media (max-width: 768px) {
+  #create-comment textarea {
+    width: 70%;
+  }
 }
 
 #create-comment button {

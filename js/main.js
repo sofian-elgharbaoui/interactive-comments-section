@@ -71,15 +71,6 @@ for (let i = 0; i < data.comments.length; i++) {
   commentsSection.appendChild(upComment);
 }
 
-// I can get elements that have just been created with js, even outside the loop.
-let replyBtn = document.querySelectorAll(".reply-btn");
-for (let i = 0; i < [...replyBtn].length; i++) {
-  const btn = replyBtn[i];
-  btn.onclick = () => {
-    commentTextarea.focus();
-  };
-}
-
 submitButton.onclick = () => {
   if (commentTextarea.value !== "") {
     let upComment = document.createElement("section");
@@ -104,17 +95,74 @@ submitButton.onclick = () => {
       ", " +
       new Date().getFullYear()
     }</span>
-    <span class="reply-btn">
-    <i class="fa-solid fa-reply"></i> Reply
-    </span>
-    </div>
-    <div class="content">
-    ${commentTextarea.value}
-    </div>
-    </div>
-    `;
+        <span class="reply-btn">
+        <i class="fa-solid fa-reply"></i> Reply
+        </span>
+        </div>
+        <div class="content">
+        ${commentTextarea.value}
+        </div>
+        </div>
+        `;
     upComment.appendChild(comment);
     commentsSection.appendChild(upComment);
     commentTextarea.value = "";
   }
+  // // I can get elements that have just been created with js, even outside the loop.
+  // let replyBtns = document.querySelectorAll(".reply-btn");
+  // for (let i = 0; i < [...replyBtns].length; i++) {
+  //   const btn = replyBtns[i];
+  //   btn.onclick = () => {
+  //     commentTextarea.focus();
+  //   };
+  //   commentTextarea.onblur = () => {
+  //     console.log(btn.parentElement.parentElement);
+  //   };
+  // }
 };
+
+// I can get elements that have just been created with js, even outside the loop.
+let replyBtns = document.querySelectorAll(".reply-btn");
+// console.log([...replyBtns]);
+for (let i = 0; i < [...replyBtns].length; i++) {
+  const btn = replyBtns[i];
+  btn.onclick = (e) => {
+    commentTextarea.focus();
+    commentTextarea.onblur = () => {
+      let comment = document.createElement("div");
+      comment.className = "comment";
+      comment.innerHTML = `
+    <div class="left-side">
+    <span>+</span>
+    <span class="score">0</span>
+    <span>-</span>
+    </div>
+    <div class="right-side">
+    <div class="user">
+    <img src="${data.currentUser.image.png}" alt="" />
+    <h5 class="user-name">${data.currentUser.username}</h5>
+    <span class="created-at">${
+      new Date().getDate() +
+      " " +
+      new Date().toLocaleString("default", { month: "short" }) +
+      ", " +
+      new Date().getFullYear()
+    }</span>
+        <span class="reply-btn">
+        <i class="fa-solid fa-reply"></i> Reply
+        </span>
+        </div>
+        <div class="content">
+        <span class="replying-to">@${
+          btn.previousElementSibling.previousElementSibling.textContent
+        }</span>
+        ${commentTextarea.value}
+        </div>
+        </div>
+        `;
+      btn.parentElement.parentElement.parentElement.parentElement.append(
+        comment
+      );
+    };
+  };
+}
