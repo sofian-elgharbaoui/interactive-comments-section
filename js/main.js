@@ -81,7 +81,11 @@ for (let i = 0; i < allusersNames.length; i++) {
     let you = document.createElement("span");
     you.innerText = "you";
     you.className = "currentUser-sign";
-    userName.append(you);
+    userName.after(you);
+
+    userName
+      .closest(".right-side")
+      .lastElementChild.setAttribute("contenteditable", "");
   }
 }
 
@@ -115,7 +119,7 @@ submitButton.onclick = () => {
         <i class="fa-solid fa-reply"></i> Reply
         </span>
         </div>
-        <div class="content">
+        <div class="content" contenteditable>
         ${commentTextarea.value}
         </div>
         </div>
@@ -133,45 +137,48 @@ for (let i = 0; i < replyBtns.length; i++) {
   btn.onclick = () => {
     commentTextarea.focus();
     submitButton.onclick = () => {
-      let reply = document.createElement("div");
-      reply.className = "reply";
-      reply.innerHTML = `
-      <div class="left-side">
-      <span>+</span>
-      <span class="score">0</span>
-      <span>-</span>
-      </div>
-      <div class="right-side">
-      <div class="user">
-      <img src="${data.currentUser.image.png}" alt="" />
-      <h5 class="user-name">${
-        data.currentUser.username
-      } <span class="currentUser-sign">you</span></h5>
-      <span class="created-at">${
-        new Date().getDate() +
-        " " +
-        new Date().toLocaleString("default", { month: "short" }) +
-        ", " +
-        new Date().getFullYear()
-      }</span>
-    <span class="reply-btn">
-    <i class="fa-solid fa-reply"></i> Reply
-    </span>
-    </div>
-    <div class="content">
-    <span class="replying-to">@${
-      btn.previousElementSibling.previousElementSibling.textContent
-    }</span>
-      ${commentTextarea.value}
-    </div>
-    </div>
-    `;
-      if (btn.closest(".comment")) {
-        btn.closest(".comment").nextElementSibling.appendChild(reply);
-      } else if (btn.closest(".reply")) {
-        btn.closest(".reply").parentElement.appendChild(reply);
+      if (commentTextarea.value !== "") {
+        let reply = document.createElement("div");
+        reply.className = "reply";
+        reply.innerHTML = `
+        <div class="left-side">
+        <span>+</span>
+        <span class="score">0</span>
+        <span>-</span>
+        </div>
+        <div class="right-side">
+        <div class="user">
+        <img src="${data.currentUser.image.png}" alt="" />
+        <h5 class="user-name">${
+          data.currentUser.username
+        } <span class="currentUser-sign">you</span></h5>
+        <span class="created-at">${
+          new Date().getDate() +
+          " " +
+          new Date().toLocaleString("default", { month: "short" }) +
+          ", " +
+          new Date().getFullYear()
+        }</span>
+        <span class="reply-btn">
+        <i class="fa-solid fa-reply"></i> Reply
+        </span>
+        </div>
+        <div class="content" contenteditable>
+        <span class="replying-to">@${
+          btn.parentElement.firstElementChild.nextElementSibling.textContent
+        }
+        </span>
+        ${commentTextarea.value}
+        </div>
+        </div>
+        `;
+        if (btn.closest(".comment")) {
+          btn.closest(".comment").nextElementSibling.appendChild(reply);
+        } else if (btn.closest(".reply")) {
+          btn.closest(".reply").parentElement.appendChild(reply);
+        }
+        commentTextarea.value = null;
       }
-      commentTextarea.value = null;
     };
   };
 }

@@ -12,7 +12,6 @@ body {
 
 .currentUser-sign {
   background-color: var(--Moderate-blue);
-  margin-left: 5px;
   padding: 3px 5px;
   color: #fff;
 }
@@ -101,6 +100,7 @@ img {
   height: 2rem;
 }
 
+/* create comment */
 #create-comment {
   background-color: #fff;
   padding: 1rem;
