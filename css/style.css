@@ -10,6 +10,12 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
+.currentUser-sign {
+  background-color: var(--Moderate-blue);
+  margin-left: 5px;
+  padding: 3px 5px;
+  color: #fff;
+}
 .comment,
 .reply {
   background-color: #fff;
@@ -37,6 +43,7 @@ body {
   width: 90%;
   margin-left: auto;
 }
+
 /* left side */
 .left-side {
   background-color: aliceblue;
@@ -129,6 +136,7 @@ img {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  outline: none;
 }
 
 #create-comment::after {
