@@ -25,12 +25,12 @@ for (let i = 0; i < data.comments.length; i++) {
   </div>
   <div class="right-side">
     <div class="user">
-      <img src="${data.comments[i].user.image.png}" alt="" />
-      <h5 class="user-name">${data.comments[i].user.username}</h5>
+      <img src="${data.comments[i].user.image.png}" alt="${data.comments[i].user.username}" />
+      <p class="user-name">${data.comments[i].user.username}</p>
       <span class="created-at">${data.comments[i].createdAt}</span>
-      <span  class="reply-btn">
+      <button  class="reply-btn">
       <i class="fa-solid fa-reply"></i> Reply
-      </span>
+      </button>
     </div>
     <div class="content">
     ${data.comments[i].content}
@@ -52,15 +52,15 @@ for (let i = 0; i < data.comments.length; i++) {
           </div>
           <div class="right-side">
             <div class="user">
-              <img src="${data.comments[i].replies[j].user.image.png}" alt="" />
-              <h5 class="user-name">${data.comments[i].replies[j].user.username}</h5>
+              <img src="${data.comments[i].replies[j].user.image.png}" alt="${data.comments[i].replies[j].user.username}" />
+              <p class="user-name">${data.comments[i].replies[j].user.username}</p>
               <span class="created-at">${data.comments[i].replies[j].createdAt}</span>
-              <span class="reply-btn">
+              <button class="reply-btn">
                 <i class="fa-solid fa-reply"></i> Reply
-              </span>
+              </button>
             </div>
             <div class="content">
-              <span class="replying-to">@${data.comments[i].replies[j].replyingTo}</span>
+              <b class="replying-to">@${data.comments[i].replies[j].replyingTo}</b>
               ${data.comments[i].replies[j].content}
             </div>
           </div>
@@ -104,10 +104,12 @@ submitButton.onclick = () => {
     </div>
     <div class="right-side">
     <div class="user">
-    <img src="${data.currentUser.image.png}" alt="" />
-    <h5 class="user-name">${
+    <img src="${data.currentUser.image.png}" alt="${
       data.currentUser.username
-    } <span class="currentUser-sign">you</span></h5>
+    }" />
+    <p class="user-name">${
+      data.currentUser.username
+    } <span class="currentUser-sign">you</span></p>
     <span class="created-at">${
       new Date().getDate() +
       " " +
@@ -115,9 +117,9 @@ submitButton.onclick = () => {
       ", " +
       new Date().getFullYear()
     }</span>
-    <span class="reply-btn">
+    <button class="reply-btn">
         <i class="fa-solid fa-reply"></i> Reply
-        </span>
+        </button>
         </div>
         <div class="content" contenteditable>
         ${commentTextarea.value}
@@ -148,10 +150,12 @@ for (let i = 0; i < replyBtns.length; i++) {
         </div>
         <div class="right-side">
         <div class="user">
-        <img src="${data.currentUser.image.png}" alt="" />
-        <h5 class="user-name">${
+        <img src="${data.currentUser.image.png}" alt="${
           data.currentUser.username
-        } <span class="currentUser-sign">you</span></h5>
+        }" />
+        <p class="user-name">${
+          data.currentUser.username
+        } <span class="currentUser-sign">you</span></p>
         <span class="created-at">${
           new Date().getDate() +
           " " +
@@ -159,15 +163,15 @@ for (let i = 0; i < replyBtns.length; i++) {
           ", " +
           new Date().getFullYear()
         }</span>
-        <span class="reply-btn">
+        <button class="reply-btn">
         <i class="fa-solid fa-reply"></i> Reply
-        </span>
+        </button>
         </div>
         <div class="content" contenteditable>
-        <span class="replying-to">@${
+        <b class="replying-to">@${
           btn.parentElement.firstElementChild.nextElementSibling.textContent
         }
-        </span>
+        </b>
         ${commentTextarea.value}
         </div>
         </div>
