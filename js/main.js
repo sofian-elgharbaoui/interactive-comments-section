@@ -1,11 +1,12 @@
 // import data from "./data.json" assert { type: "json" };
+// import data from "./data.json" assert { type: "json" }; this method works only in chrome
 
-let myData = fetch(
+fetch(
   "https://raw.githubusercontent.com/sofian-elgharbaoui/interactive-comments-section/main/js/data.json"
-).then((resolved) => {
-  return resolved.json();
-});
-myData
+)
+  .then((fulfilled) => {
+    return fulfilled.json();
+  })
   .then((data) => {
     // let commentForm = document.getElementById("create-comment");
     let commentTextarea = document.querySelector("#create-comment textarea");
@@ -81,7 +82,7 @@ myData
       allCommentsSection.appendChild(upComment);
     }
 
-    let allusersNames = [...document.querySelectorAll("h5.user-name")];
+    let allusersNames = [...document.querySelectorAll("p.user-name")];
     for (let i = 0; i < allusersNames.length; i++) {
       const userName = allusersNames[i];
       if (userName.innerText == "juliusomo") {
