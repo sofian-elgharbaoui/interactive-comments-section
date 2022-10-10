@@ -1,11 +1,9 @@
 // import data from "./data.json" assert { type: "json" };
 
 let myData = fetch(
-  "https://github.com/sofian-elgharbaoui/interactive-comments-section/blob/main/js/data.json"
+  "https://raw.githubusercontent.com/sofian-elgharbaoui/interactive-comments-section/main/js/data.json"
 ).then((resolved) => {
-  console.log(resolved);
-  let data = resolved.json();
-  return data;
+  return resolved.json();
 });
 myData
   .then((data) => {
