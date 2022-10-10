@@ -74,6 +74,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.user-name {
+  font-weight: 500;
+}
+
 .user .created-at,
 .content {
   color: rgb(116, 116, 116);
@@ -81,9 +85,12 @@ body {
 
 .user .reply-btn {
   margin-left: auto;
+  background-color: transparent;
   color: var(--Moderate-blue);
   font-weight: 500;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 .user .reply-btn i {
@@ -92,7 +99,6 @@ body {
 
 .replying-to {
   color: var(--Moderate-blue);
-  font-weight: 500;
 }
 
 img {
