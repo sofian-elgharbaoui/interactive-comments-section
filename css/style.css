@@ -15,6 +15,7 @@ body {
   padding: 3px 5px;
   color: #fff;
 }
+
 .comment,
 .reply {
   background-color: #fff;
@@ -52,9 +53,15 @@ body {
   gap: 5px;
   height: fit-content;
   padding: 5px;
-  min-width: 30px;
+  width: 30px;
   border-radius: 5px;
   color: #aaa;
+}
+
+.plus-btn:hover,
+.minus-btn:hover {
+  color: var(--Moderate-blue);
+  cursor: pointer;
 }
 
 .left-side .score {
@@ -83,14 +90,35 @@ body {
   color: rgb(116, 116, 116);
 }
 
-.user .reply-btn {
-  margin-left: auto;
+.reply-btn,
+.delete-btn,
+.edit-btn {
   background-color: transparent;
   color: var(--Moderate-blue);
   font-weight: 500;
   cursor: pointer;
   border: none;
   outline: none;
+}
+
+.reply-btn:hover,
+.edit-btn:hover {
+  color: var(--Light-grayish-blue);
+  cursor: pointer;
+}
+
+.reply-btn,
+.delete-btn {
+  margin-left: auto;
+}
+
+.delete-btn {
+  color: var(--Soft-Red);
+}
+
+.delete-btn:hover {
+  color: var(--Pale-red);
+  cursor: pointer;
 }
 
 .user .reply-btn i {
@@ -109,40 +137,13 @@ img {
 /* create comment */
 #create-comment {
   background-color: #fff;
+  height: 120px;
   padding: 1rem;
-  margin: 1rem 0;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-  height: 120px;
   position: sticky;
   bottom: 1rem;
-}
-
-#create-comment textarea {
-  width: 75%;
-  border: 2px solid #eee;
-  border-radius: 5px;
-  padding: 10px;
-  outline: none;
-  resize: none;
-}
-
-@media (max-width: 768px) {
-  #create-comment textarea {
-    width: 70%;
-  }
-}
-
-#create-comment button {
-  width: 90px;
-  height: 40px;
-  color: #fff;
-  background-color: var(--Moderate-blue);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  outline: none;
 }
 
 #create-comment::after {
@@ -153,4 +154,57 @@ img {
   height: 1rem;
   width: 100%;
   background-color: aliceblue;
+}
+
+#create-reply {
+  background-color: #fff;
+  height: 120px;
+  width: inherit;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#create-comment textarea,
+#create-reply textarea {
+  width: 75%;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+  outline: none;
+  resize: none;
+}
+
+@media (max-width: 768px) {
+  #create-comment textarea,
+  #create-reply textarea {
+    width: 70%;
+  }
+}
+
+#create-comment button,
+#create-reply button,
+#update-btn {
+  width: 90px;
+  height: 40px;
+  color: #fff;
+  background-color: var(--Moderate-blue);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+#create-comment button:hover,
+#create-reply button:hover,
+#update-btn:hover {
+  background-color: var(--Light-grayish-blue);
+  cursor: pointer;
+}
+
+#update-btn {
+  margin-top: 1rem;
+  margin-left: auto;
+  display: block;
 }
