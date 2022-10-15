@@ -1,7 +1,7 @@
-// fetch(
-//   "https://raw.githubusercontent.com/sofian-elgharbaoui/interactive-comments-section/main/js/data.json"
-// )
-fetch("http://127.0.0.1:5500/js/data.json")
+fetch(
+  "https://raw.githubusercontent.com/sofian-elgharbaoui/interactive-comments-section/main/js/data.json"
+)
+// fetch("http://127.0.0.1:5500/js/data.json")
   .then((onfulfiled) => {
     return onfulfiled.json();
   })
