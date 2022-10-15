@@ -1,7 +1,7 @@
 fetch(
   "https://raw.githubusercontent.com/sofian-elgharbaoui/interactive-comments-section/main/js/data.json"
 )
-// fetch("http://127.0.0.1:5500/js/data.json")
+  // fetch("http://127.0.0.1:5500/js/data.json")
   .then((onfulfiled) => {
     return onfulfiled.json();
   })
@@ -167,7 +167,6 @@ fetch(
     }
 
     let allMinusBtns = document.getElementsByClassName("minus-btn");
-    console.log(allMinusBtns);
     for (let i = 0; i < allMinusBtns.length; i++) {
       const minusBtn = allMinusBtns[i];
       // that means I want the vlaue of this element; this isn't express that element
@@ -296,7 +295,6 @@ fetch(
           }
 
           let allMinusBtns = document.getElementsByClassName("minus-btn");
-          console.log(allMinusBtns);
           for (let i = 0; i < allMinusBtns.length; i++) {
             const minusBtn = allMinusBtns[i];
             // that means I want the vlaue of this element; this isn't express that element
